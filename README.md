@@ -9,19 +9,19 @@
 
 <table>
     <tr>
-        <td><img src="./demo/1.gif" width="300"/></td>
-        <td><img src="./demo/20171229163116.png" width="300"/></td>
+        <td><img src="./demo/1.gif"/></td>
+        <td><img src="./demo/20171229163116.png" /></td>
     </tr>
     <tr>
-        <td><img src="./demo/20171229163127.png" width="300"/></td>
-        <td><img src="./demo/20171229163140.png" width="300"/></td>
+        <td><img src="./demo/20171229163127.png"/></td>
+        <td><img src="./demo/20171229163140.png" /></td>
     </tr>
     <tr>
-        <td><img src="./demo/20171229185301.png" width="300"/></td>
-        <td><img src="./demo/20171230124816.png" width="300"/></td>
+        <td><img src="./demo/20171229185301.png" /></td>
+        <td><img src="./demo/20171230124816.png" /></td>
     </tr>
     <tr>
-        <td><img src="./demo/20171230124819.png" width="300"/></td>
+        <td><img src="./demo/20171230124819.png" /></td>
         <td></td>
     </tr>
 </table>
