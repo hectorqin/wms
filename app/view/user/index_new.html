@@ -1,0 +1,249 @@
+{extend name="layout/list" /}
+
+{block name="title"}员工管理 - {__block__}{/block}
+
+{block name="breadcrumb_parent"}基本设置{/block}
+{block name="page_title"}员工管理{/block}
+
+{block name="search_fields"}
+<span>
+    <label class="control-label">员工名称</label>
+    <input type="text" class="form-control" placeholder="员工名称" name="truename" value="{$Request.get.truename}">
+</span>
+
+<span style="margin-left: 15px;">
+    <label class="control-label">员工编号</label>
+    <input type="text" class="form-control" placeholder="员工编号" name="sn" value="{$Request.get.sn}">
+</span>
+
+<span style="margin-left: 15px;">
+    <label class="control-label">员工状态</label>
+    <select class="form-control" name="status">
+        <option value="" {eq name="Request.get.status" value=" " } selected="selected" {/eq}>全部</option>
+        <option value="0" {eq name="Request.get.status" value="0" } selected="selected" {/eq}>正常</option>
+        <option value="1" {eq name="Request.get.status" value="1" } selected="selected" {/eq}>废弃</option>
+    </select>
+</span>
+
+<span style="margin-left: 15px;">
+    <label class="control-label">角色</label>
+    <select class="form-control" name="role">
+        <option value="0">默认</option>
+        {volist name='role' id='vo'}
+        <option value="{$vo.id}" {eq name="Request.get.role" value="$vo.id" } selected="selected" {/eq}>{$vo.name}</option>
+        {/volist}
+    </select>
+</span>
+
+<span style="margin-left: 15px;">
+    <label class="control-label">所属公司</label>
+    <select class="form-control" name="company">
+        <option value="0">默认</option>
+        {volist name='company' id='vo'}
+        <option value="{$vo.id}" {eq name="Request.get.company" value="$vo.id" } selected="selected" {/eq}>{$vo.name}</option>
+        {/volist}
+    </select>
+</span>
+{/block}
+
+{block name="table_content"}
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $("#example-2").dataTable({
+            dom: "t" + "<'row'<'col-xs-6'><'col-xs-6'>>",
+            aoColumns: [
+                { bSortable: false },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                { bSortable: false }
+            ],
+        });
+
+        var $state = $("#example-2 thead input[type='checkbox']");
+
+        $("#example-2").on('draw.dt', function () {
+            cbr_replace();
+            $state.trigger('change');
+        });
+
+        $state.on('change', function (ev) {
+            var $chcks = $("#example-2 tbody input[type='checkbox']");
+            if ($state.is(':checked')) {
+                $chcks.prop('checked', true).trigger('change');
+            } else {
+                $chcks.prop('checked', false).trigger('change');
+            }
+        });
+    });
+</script>
+
+<table class="table table-bordered table-striped" id="example-2">
+    <thead>
+        <tr>
+            <th class="no-sorting">
+                <input type="checkbox" class="cbr">
+            </th>
+            <th>编号</th>
+            <th>员工名称</th>
+            <th>角色</th>
+            <th>公司</th>
+            <th>状态</th>
+            <th>创建时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody class="middle-align">
+        {volist name='list' id='user'}
+        <tr>
+            <td>
+                <input type="checkbox" class="cbr">
+            </td>
+            <td>{$user.sn}</td>
+            <td>{$user.truename}</td>
+            <td>{$user.findRole->name}</td>
+            <td>{$user.findCompany->name}</td>
+            <td>{$user.status==0?'正常':'废弃'}</td>
+            <td>{:date('Y-m-d H:i:s',$user->add_time)}</td>
+            <td>
+                <a href="javascript:;" class="btn btn-secondary btn-sm btn-icon icon-left" onclick="editAjaxModal('{:url('/User/edit/id/'.$user->id)}')">编辑</a>
+                <a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left" onclick="del('{$user.id}')">删除</a>
+            </td>
+        </tr>
+        {/volist}
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="dataTables_info" id="example-3_info" role="status" aria-live="polite">共 {$list->total()} 行数据</div>
+    </div>
+    <div class="col-xs-6">
+        <div class="dataTables_paginate paging_simple_numbers" id="example-3_paginate">
+            {$list->render()}
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="modal_area"}
+<!-- Modal add -->
+<div class="modal fade" id="modal-add">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加员工</h4>
+            </div>
+            <div class="modal-body">Content is loading...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" onclick="add_from()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal edit -->
+<div class="modal fade" id="modal-edit">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">编辑员工</h4>
+            </div>
+            <div class="modal-body">Content is loading...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" onclick="edit_from()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+<script src="__STATIC__/js/datatables/js/jquery.dataTables.min.js"></script>
+<script src="__STATIC__/js/datatables/dataTables.bootstrap.js"></script>
+<script src="__STATIC__/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+<script src="__STATIC__/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+<script src="__STATIC__/js/table-export/xlsx.core.min.js"></script>
+<script src="__STATIC__/js/table-export/blob.js"></script>
+<script src="__STATIC__/js/table-export/FileSaver.min.js"></script>
+<script src="__STATIC__/js/table-export/tableexport.js"></script>
+
+<script type="text/javascript">
+    function showAjaxModal() {
+        jQuery.ajax({
+            url: "{:url('User/create')}",
+            success: function (response) {
+                if (typeof response != 'string') {
+                    toastr.error(response.msg);
+                    return false;
+                }
+                jQuery('#modal-add').modal('show', { backdrop: 'static' });
+                jQuery('#modal-add .modal-body').html(response);
+            }
+        });
+    }
+
+    function editAjaxModal(url) {
+        jQuery.ajax({
+            url: url,
+            success: function (response) {
+                if (typeof response != 'string') {
+                    toastr.error(response.msg);
+                    return false;
+                }
+                jQuery('#modal-edit').modal('show', { backdrop: 'static' });
+                jQuery('#modal-edit .modal-body').html(response);
+            }
+        });
+    }
+
+    function add_from() {
+        var url = "{:url('User/save')}"
+        var data = jQuery('#modal-add form').serialize();
+        jQuery.post(url, data, function (data) {
+            if (data.code == 200) {
+                toastr.success(data.msg);
+                jQuery('#modal-add').modal('hide');
+                window.location.reload();
+            } else {
+                toastr.error(data.msg);
+            }
+        });
+    }
+
+    function edit_from() {
+        var url = "{:url('User/update')}";
+        var data = jQuery('#modal-edit form').serialize();
+        jQuery.post(url, data, function (data) {
+            if (data.code == 200) {
+                toastr.success(data.msg);
+                jQuery('#modal-edit').modal('hide');
+                window.location.reload();
+            } else {
+                toastr.error(data.msg);
+            }
+        });
+    }
+
+    function del(id) {
+        if (confirm('确定删除吗？')) {
+            var url = "{:url('User/delete')}";
+            jQuery.post(url, { id: id }, function (data) {
+                if (data.code == 200) {
+                    toastr.success(data.msg);
+                    window.location.reload();
+                } else {
+                    toastr.error(data.msg);
+                }
+            });
+        }
+    }
+</script>
+{/block}

@@ -1,8 +1,7 @@
 <?php
 namespace app\service;
 
-use think\Request,
-	app\model\Role,
+use app\model\Role,
 	app\model\Menu,
 	app\validate\RoleValidate;
 
@@ -23,9 +22,9 @@ class RoleService
     // 保存数据
 	public function save()
 	{
-		Request::instance()->isPost() || die('request not  post!');
+		request()->isPost() || die('request not  post!');
 
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if (is_null($error)) {
@@ -55,9 +54,9 @@ class RoleService
 
 	public function update()
 	{
-		Request::instance()->isPost() || die('request not  post!');
+		request()->isPost() || die('request not  post!');
 
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if (is_null($error)) {

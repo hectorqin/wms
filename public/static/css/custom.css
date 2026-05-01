@@ -1,1 +1,939 @@
-table th,table tr{text-align:center;}
+/* 表格样式 - Xenon 风格 */
+
+/* ========== 面包屑导航样式 ========== */
+.page-title {
+    margin-bottom: 20px;
+    padding: 15px 0;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.breadcrumb > li {
+    display: inline-block;
+    padding: 0;
+}
+
+.breadcrumb > li + li:before {
+    content: '>';
+    padding: 0 8px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.breadcrumb a {
+    color: #667eea;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.breadcrumb .active {
+    color: #323232;
+    font-weight: 600;
+}
+
+.breadcrumb i {
+    margin-right: 5px;
+    color: #667eea;
+}
+
+/* 面包屑渐变背景变体 */
+.breadcrumb-env {
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 5px;
+}
+
+.breadcrumb-env .breadcrumb {
+    background: transparent;
+}
+
+.breadcrumb-env .breadcrumb a {
+    color: #555;
+}
+
+.breadcrumb-env .breadcrumb a:hover {
+    color: #667eea;
+}
+
+.breadcrumb-env .active {
+    color: #667eea;
+}
+
+/* 页面标题样式 */
+.page-title h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #323232;
+    font-weight: 600;
+}
+
+.page-title .pull-right {
+    margin-top: -30px;
+}
+
+/* ========== 表格基础样式 ========== */
+
+/* 强制所有表格单元格居中 - 最高优先级 */
+.panel table td,
+.panel table th,
+.panel table tbody td,
+.panel table tbody th,
+.panel table thead td,
+.panel table thead th,
+.panel table tfoot td,
+.panel table tfoot th,
+table td,
+table th,
+table tbody td,
+table tbody th,
+table thead td,
+table thead th,
+table tfoot td,
+table tfoot th {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+/* 针对所有表格行的强制居中 */
+.panel table tr,
+.panel table tbody tr,
+.panel table thead tr,
+.panel table tfoot tr,
+table tr,
+table tbody tr,
+table thead tr,
+table tfoot tr {
+    text-align: center !important;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+}
+
+table thead {
+    background-color: #f8f8f8;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: center !important;
+    vertical-align: middle !important;
+    border-bottom: 1px solid #ebebeb;
+}
+
+table th {
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-bottom-width: 2px;
+}
+
+table tbody tr {
+    text-align: center !important;
+}
+
+table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+table tbody tr:nth-child(even):hover {
+    background-color: #f9f9f9;
+}
+
+/* 响应式表格 */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 表格行中心对齐 */
+table th,
+table td,
+table tr,
+table tbody th,
+table tbody td,
+table tbody tr {
+    text-align: center !important;
+}
+
+/* 紧凑表格 */
+table.table-condensed th,
+table.table-condensed td {
+    padding: 8px 10px;
+}
+
+/* 边框表格 */
+table.table-bordered {
+    border: 1px solid #ebebeb;
+}
+
+table.table-bordered th,
+table.table-bordered td {
+    border: 1px solid #ebebeb;
+}
+
+/* 悬停效果 */
+table.table-hover tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* 条纹表格 */
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+/* 操作按钮样式 */
+table .btn-group {
+    white-space: nowrap;
+}
+
+table .btn {
+    margin-right: 5px;
+}
+
+table .btn:last-child {
+    margin-right: 0;
+}
+
+/* 表格中的复选框 */
+table input[type="checkbox"],
+table input[type="radio"] {
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* 表格中的标签 */
+table .label {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+/* 状态标签颜色 */
+table .label-success {
+    background-color: #8dc63f;
+    color: #fff;
+}
+
+table .label-warning {
+    background-color: #ffba00;
+    color: #fff;
+}
+
+table .label-danger {
+    background-color: #cc3f44;
+    color: #fff;
+}
+
+table .label-info {
+    background-color: #40bbea;
+    color: #fff;
+}
+
+table .label-primary {
+    background-color: #323232;
+    color: #fff;
+}
+
+/* 空表格提示 */
+table tbody tr.empty-row td {
+    text-align: center;
+    color: #999;
+    padding: 30px 15px;
+}
+
+/* 表格图片 */
+table img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 3px;
+}
+
+/* 表格中的链接 */
+table a {
+    color: #323232;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+table a:hover {
+    color: #40bbea;
+}
+
+/* 默认排序图标 */
+table th.sortable {
+    cursor: pointer;
+    position: relative;
+    padding-right: 25px;
+}
+
+table th.sortable:after {
+    content: '\f0dc';
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 12px;
+}
+
+table th.sortable.asc:after {
+    content: '\f0de';
+}
+
+table th.sortable.desc:after {
+    content: '\f0dd';
+}
+
+/* 统一文本居中 */
+table th,
+table tr {
+    text-align: center;
+}
+
+/* ========== 按钮美化 ========== */
+.btn {
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    color: #fff;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #8dc63f 0%, #7cb328 100%);
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #7cb328 0%, #8dc63f 100%);
+    color: #fff;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffba00 0%, #e6a700 100%);
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #e6a700 0%, #ffba00 100%);
+    color: #fff;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #cc3f44 0%, #b33236 100%);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #b33236 0%, #cc3f44 100%);
+    color: #fff;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #40bbea 0%, #28a9d6 100%);
+    color: #fff;
+}
+
+.btn-info:hover {
+    background: linear-gradient(135deg, #28a9d6 0%, #40bbea 100%);
+    color: #fff;
+}
+
+.btn-default {
+    background: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+}
+
+.btn-default:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0;
+}
+
+/* ========== 面板美化 ========== */
+.panel {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.panel-default {
+    border-top: 3px solid #667eea;
+}
+
+.panel-primary {
+    border: none;
+    box-shadow: 0 2px 12px rgba(102, 126, 234, 0.2);
+}
+
+.panel-heading {
+    border-radius: 8px 8px 0 0 !important;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.panel-primary .panel-heading {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+}
+
+.panel-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #323232;
+}
+
+.panel-primary .panel-title {
+    color: #fff;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+.panel-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #ebebeb;
+    padding: 12px 20px;
+}
+
+/* ========== 表单美化 ========== */
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.input-group-addon {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #555;
+}
+
+/* ========== 模态框美化 ========== */
+.modal-content {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+    padding: 15px 20px;
+}
+
+.modal-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    border-top: 1px solid #ebebeb;
+    padding: 12px 20px;
+}
+
+/* ========== 标签美化 ========== */
+.label {
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.label-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.label-success {
+    background: linear-gradient(135deg, #8dc63f 0%, #7cb328 100%);
+    color: #fff;
+}
+
+.label-warning {
+    background: linear-gradient(135deg, #ffba00 0%, #e6a700 100%);
+    color: #fff;
+}
+
+.label-danger {
+    background: linear-gradient(135deg, #cc3f44 0%, #b33236 100%);
+    color: #fff;
+}
+
+.label-info {
+    background: linear-gradient(135deg, #40bbea 0%, #28a9d6 100%);
+    color: #fff;
+}
+
+/* ========== 工具栏美化 ========== */
+.btn-toolbar {
+    margin-bottom: 15px;
+}
+
+.dropdown-menu {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 5px 0;
+}
+
+.dropdown-menu > li > a {
+    padding: 8px 15px;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu > li > a:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+/* ========== 分页美化 ========== */
+.pagination > li > a,
+.pagination > li > span {
+    border-radius: 4px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+    color: #fff;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+}
+
+/* ========== 警告框美化 ========== */
+.alert {
+    border-radius: 4px;
+    border: none;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+}
+
+.alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-left: 4px solid #8dc63f;
+}
+
+.alert-warning {
+    background: #fff3e0;
+    color: #e65100;
+    border-left: 4px solid #ffba00;
+}
+
+.alert-danger {
+    background: #ffebee;
+    color: #c62828;
+    border-left: 4px solid #cc3f44;
+}
+
+.alert-info {
+    background: #e3f2fd;
+    color: #1565c0;
+    border-left: 4px solid #40bbea;
+}
+
+/* ========== 滚动条美化 ========== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ========== 卡片组件美化 ========== */
+.xe-widget {
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.xe-widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ========== 加载动画 ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panel,
+.xe-widget,
+.modal-content {
+    animation: fadeIn 0.3s ease;
+}
+
+/* ========== 用户导航栏美化 ========== */
+.user-info-navbar {
+    min-height: 50px !important;
+    height: 50px !important;
+    padding: 0 20px;
+    background: #fff !important;
+    border-bottom: 1px solid #ebebeb;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.user-info-navbar .navbar-content {
+    padding: 0;
+}
+
+.user-info-navbar .user-info-menu {
+    margin-top: 0 !important;
+}
+
+.user-info-navbar .user-info-menu > li {
+    line-height: 50px;
+    height: 50px;
+}
+
+.user-info-navbar .user-info-menu > li > a {
+    height: 50px !important;
+    padding: 0 12px !important;
+    display: inline-flex;
+    align-items: center;
+    line-height: 50px !important;
+}
+
+.user-info-navbar .user-info-menu > li > a > img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.user-info-navbar .user-info-menu > li > a > span {
+    line-height: normal;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.user-info-navbar .user-info-menu > li > a:hover {
+    background: #f8f9fa;
+}
+
+.user-info-navbar .dropdown-menu {
+    margin-top: 10px !important;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border: none;
+}
+
+.user-info-navbar .dropdown-menu > li > a {
+    padding: 8px 15px;
+    font-size: 13px;
+    line-height: normal;
+}
+
+.user-info-navbar .dropdown-menu > li > a:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.user-info-navbar .badge {
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+/* 侧边栏用户信息 */
+.sidebar-user-info {
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-user-info .user-link {
+    padding: 10px 0;
+}
+
+.sidebar-user-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.3);
+}
+
+.sidebar-user-info .uname {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.sidebar-user-info .stitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+}
+
+/* ========== 列表页面美化 ========== */
+.page-title {
+    margin-bottom: 15px;
+}
+
+.panel-heading {
+    padding: 12px 15px;
+}
+
+.panel-heading .btn-toolbar {
+    margin-bottom: 0;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+/* 搜索表单 */
+.form-inline {
+    margin-bottom: 10px;
+}
+
+.form-inline .form-group {
+    margin-bottom: 8px;
+}
+
+.form-inline .form-control {
+    width: 180px;
+    padding: 6px 10px;
+    font-size: 13px;
+}
+
+.form-inline label.control-label {
+    font-size: 13px;
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.form-inline .btn {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+/* 表格优化 */
+.table-bordered {
+    border-color: #ebebeb;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > td {
+    padding: 8px 10px;
+    font-size: 13px;
+    border-color: #ebebeb;
+}
+
+.table-bordered > thead > tr > th {
+    background: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-bottom-width: 2px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table > tbody > tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* 表格操作按钮 */
+.table .btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-right: 3px;
+}
+
+.table .btn-sm {
+    padding: 3px 6px;
+    font-size: 11px;
+}
+
+/* 分页优化 */
+.dataTables_info {
+    font-size: 13px;
+    padding-top: 5px;
+}
+
+.dataTables_paginate {
+    padding-top: 5px;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* 下拉菜单按钮 */
+.dropdown-menu {
+    font-size: 13px;
+}
+
+.dropdown-menu > li > a {
+    padding: 6px 15px;
+}
+
+/* 复选框 */
+input[type="checkbox"].cbr,
+input[type="radio"].cbr {
+    margin: 0 5px;
+}
+
+/* 模态框优化 */
+.modal-dialog {
+    margin: 30px auto;
+}
+
+.modal-header {
+    padding: 12px 20px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 10px 20px;
+}
+
+.modal-footer .btn {
+    padding: 6px 15px;
+}
+
+/* 工具栏按钮组 */
+.btn-group .btn {
+    border-radius: 4px;
+}
+
+.btn-group + .btn-group {
+    margin-left: 5px;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .form-inline .form-control {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .form-inline .form-group {
+        display: block;
+    }
+}

@@ -1,7 +1,6 @@
 <?php
 namespace app\service;
-use think\Request,
-	app\model\Order,
+use app\model\Order,
 	app\model\Product,
 	app\model\OrderList,
 	app\validate\OrderValidate;
@@ -11,7 +10,7 @@ class InstorageService
 
     public function page(){
 
-    	$data 	= Request::instance()->get();
+    	$data 	= request()->get();
     	$where 	= [];
 
     	//封装where查询条件
@@ -24,9 +23,9 @@ class InstorageService
 
     // 保存数据
     public function save(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 
@@ -44,10 +43,10 @@ class InstorageService
 			$order->state 		= 1;
 			$order->add_time	= time();
 
-			// 检测错误
+			// 检测错�?
 			if( $order->save() ){
 				$id = $order->id;
-				//插入并更新
+				//插入并更�?
 				$this->addList($param,$id);
 
 				return ['error'	=>	0,'msg'	=>	'保存成功'];
@@ -72,7 +71,7 @@ class InstorageService
 			$product->save();
 
 
-			//添加到订单列表
+			//添加到订单列�?
 			OrderList::create([
 				'good_id'	=>	$v,
 				'order_id'	=>	$order_id,
@@ -97,7 +96,7 @@ class InstorageService
     }
 
 
-    // 验证器
+    // 验证�?
     private function _validate($data){
 		// 验证
 		$validate = validate('OrderValidate');

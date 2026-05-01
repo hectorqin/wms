@@ -1,7 +1,6 @@
 <?php
 namespace app\service;
-use think\Request,
-	app\model\Location,
+use app\model\Location,
 	app\validate\LocationValidate;
 
 class LocationService
@@ -9,7 +8,7 @@ class LocationService
 
     public function page(){
 
-    	$data 	= Request::instance()->get();
+    	$data 	= request()->get();
     	$where 	= [];
 
     	//封装where查询条件
@@ -23,9 +22,9 @@ class LocationService
 
     // 保存数据
     public function save(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
@@ -38,7 +37,7 @@ class LocationService
 			$location->desc 	= $param['desc'];
 			$location->add_time 	= time();
 
-			// 检测错误
+			// 检测错�?
 			if( $location->save() ){
 				return ['error'	=>	0,'msg'	=>	'保存成功'];
 			}else{
@@ -58,9 +57,9 @@ class LocationService
 
 
     public function update(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
@@ -72,7 +71,7 @@ class LocationService
 			$location->status 	= $param['status'];
 			$location->desc 	= $param['desc'];
 
-			// 检测错误
+			// 检测错�?
 			if( $location->save() ){
 				return ['error'	=>	0,'msg'	=>	'修改成功'];
 			}else{
@@ -94,12 +93,12 @@ class LocationService
 
 		// 支持批量删除多个数据
 		// User::destroy('1,2,3');
-		// // 或者
+		// // 或�?
 		// User::destroy([1,2,3]);
     }
 
 
-    // 验证器
+    // 验证�?
     private function _validate($data){
 		// 验证
 		$validate = validate('LocationValidate');

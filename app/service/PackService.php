@@ -1,14 +1,13 @@
 <?php
 namespace app\service;
-use think\Request,
-	app\model\OrderGood;
+use app\model\OrderGood;
 
 class PackService
 {
 
     public function page(){
         // pick_status
-        $data   = Request::instance()->get();
+        $data   = request()->get();
         $where  = [];
 
         //封装where查询条件
@@ -27,8 +26,8 @@ class PackService
     }  
 
     public function getSn(){
-        Request::instance()->isPost() || die('request not  post!');
-        $param = Request::instance()->param();  //获取参数
+        request()->isPost() || die('request not  post!');
+        $param = request()->param();  //获取参数
 
         return OrderGood::get([
             'order_sn'    =>  $param['sn']

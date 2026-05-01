@@ -16,14 +16,14 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "topthink/framework": "~5.0.0",
-        "topthink/think-queue": "1.*",
+        "php": ">=8.0.0",
+        "topthink/framework": "5.1.*",
+        "topthink/think-queue": "2.0.*",
         "topthink/think-image": "1.*"
     },
     "autoload": {
         "psr-4": {
-            "app\\": "application"
+            "app\\": "app"
         }
     },
     "extra": {

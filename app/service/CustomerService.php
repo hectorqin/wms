@@ -1,14 +1,13 @@
 <?php
 namespace app\service;
-use think\Request,
-	app\model\Customer,
+use app\model\Customer,
 	app\validate\CustomerValidate;
 
 class CustomerService
 {
 
     public function page(){
-    	$data 	= Request::instance()->get();
+    	$data 	= request()->get();
     	$where 	= [];
 
     	//封装where查询条件
@@ -24,9 +23,9 @@ class CustomerService
 
     // 保存数据
     public function save(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
@@ -46,7 +45,7 @@ class CustomerService
 			$customer->address 	= $param['address'];
 			$customer->add_time = time();
 
-			// 检测错误
+			// 检测错�?
 			if( $customer->save() ){
 				return ['error'	=>	0,'msg'	=>	'保存成功'];
 			}else{
@@ -65,9 +64,9 @@ class CustomerService
 
 
     public function update(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
@@ -81,7 +80,7 @@ class CustomerService
 			$customer->desc 	= $param['desc'];
 			$customer->address 	= $param['address'];
 
-			// 检测错误
+			// 检测错�?
 			if( $customer->save() ){
 				return ['error'	=>	0,'msg'	=>	'修改成功'];
 			}else{
@@ -103,7 +102,7 @@ class CustomerService
     }
 
 
-    // 验证器
+    // 验证�?
     private function _validate($data){
 		// 验证
 		$validate = validate('CustomerValidate');

@@ -20,6 +20,16 @@
     <script src="__STATIC__/js/jquery-1.11.1.min.js"></script>
     <script src="__STATIC__/js/jQuery.print.js"></script>
 
+    <style>
+        /* 打印页面表格强制居中 */
+        table.table-bordered th,
+        table.table-bordered td,
+        table.table-bordered tr {
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+    </style>
+
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -40,7 +50,7 @@
                             <b style="font-family:simhei;font-size:30px;">购物清单</b>
 
                             <div class="pull-right">
-                                <img src="{:url('/Instorage/barcode/sn/'.$info.order_sn)}" alt="">
+                                <img src="{:url('Instorage/barcode', ['sn' => $info.order_sn])}" alt="订单条形码">
                             </div>
                         </center>
 
@@ -179,17 +189,16 @@
         </div>
     </div>
 
+    <script>
+    // 页面加载完成后自动打印
+    window.onload = function() {
+        printPage();
+    };
 
-<div>
+    function printPage(){
+        window.print();
+    }
+    </script>
+</div>
 </body>
 </html>
-
-<script>
-$(function(){
-   p(); 
-});
-
-function p(){
-    $(".page-container").print();
-}
-</script>

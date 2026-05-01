@@ -1,142 +1,151 @@
-# Xenon WMS 仓库管理系统
+# WMS 仓库管理系统
 
-基于 ThinkPHP 5.0 开发的企业级仓库管理系统（进销存）。
+## 项目简介
 
-## 在线演示
+简单的仓储管理系统，能对商品种类、商品库存、采购、货位、入库、出库、盘点等仓储动作和数据进行监控，提升WMS的管理效益。
 
-| 账号 | 密码 | 角色 |
-|------|------|------|
-| admin | admin | 普通用户 |
-| bool | admin | 管理员 |
-
-访问地址：http://148.70.120.105:8002/login/index
-
-## 演示截图
-
-<div align="center">    
-  <img src="./demo/qq.png" width="400" alt="演示截图" />
-</div>
-
-## 技术栈
-
-| 分类 | 技术 |
-|------|------|
-| 框架 | ThinkPHP 5.0 |
-| 数据库 | MySQL |
-| 前端 | HTML + jQuery + Ajax |
-| Excel | PHPExcel |
-| 队列 | think-queue |
-| 图像 | think-image |
-
-## 项目结构
-
-```
-wms/
-├── app/                      # 应用目录
-│   ├── controller/          # 控制器
-│   ├── model/              # 模型
-│   ├── service/            # 业务服务层
-│   ├── validate/           # 验证器
-│   └── view/               # 视图模板
-├── extend/                  # 扩展类库
-│   └── Classes/            # 第三方类库
-│       └── PHPExcel/       # Excel 处理
-├── demo/                    # 演示截图
-├── public/                  # 公开资源
-├── runtime/                 # 运行时目录
-├── vendor/                  # Composer 依赖
-├── thinkphp/               # ThinkPHP 框架
-├── composer.json            # 依赖配置
-└── README.md
-```
-
-## 功能模块
+## 主要功能模块
 
 | 模块 | 说明 |
 |------|------|
-| 首页 | 仪表盘统计 |
-| 基础资料 | 分类、计量单位、商品、品牌、供应商、客户、公司 |
-| 仓库管理 | 仓库、库位、货架 |
-| 库存管理 | 库存查询、库存预警 |
-| 采购管理 | 采购订单、采购入库 |
-| 销售管理 | 销售订单、销售出库 |
-| 配货管理 | 配货单、打印、发货 |
-| 订单管理 | 订单处理、导入导出 |
-| 系统管理 | 用户、角色、菜单 |
+| 采购管理 | 采购订单、供应商管理 |
+| 销售管理 | 销售订单、客户管理 |
+| 库位管理 | 库位设置、货位分配 |
+| 预警提示 | 库存预警、过期预警 |
+| 报表查询 | 库存状况、出入库统计 |
+| 系统管理 | 用户管理、角色权限 |
+| 财务管理 | 收款付款、成本核算 |
+| API接口 | 第三方平台接入 |
+| 语音播报 | 语音提示、语音播报 |
+| 设备管理 | 扫码枪、盘点机支持 |
 
-## 核心控制器
+## 环境要求
 
-| 控制器 | 说明 |
-|--------|------|
-| `Index` | 首页 |
-| `Login` | 登录 |
-| `Category` | 分类管理 |
-| `Unit` | 计量单位 |
-| `Product` | 商品管理 |
-| `Brand` | 品牌管理 |
-| `Supplier` | 供应商管理 |
-| `Customer` | 客户管理 |
-| `Company` | 公司管理 |
-| `Storage` | 仓库管理 |
-| `Location` | 库位管理 |
-| `Shelve` | 货架管理 |
-| `Instorage` | 入库管理 |
-| `Outstorage` | 出库管理 |
-| `Order` | 订单管理 |
-| `Pack` | 配货管理 |
-| `User` | 用户管理 |
-| `Role` | 角色管理 |
-| `Menu` | 菜单管理 |
+| 项目 | 要求 |
+|------|------|
+| PHP 版本 | >= 8.0.0 |
+| MySQL 版本 | >= 5.7 (推荐 8.0) |
+| Web 服务器 | Apache / Nginx |
+| 扩展要求 | mysqli, pdo, json, mbstring |
 
-## 快速开始
+## 安装部署
 
-### 环境要求
+### 1. 配置 Web 服务器
 
-- PHP >= 5.4.0
-- MySQL >= 5.5
-- Apache/Nginx
-- Composer
+将项目部署到 Web 服务器的根目录，入口文件位于 `public/index.php`
 
-### 安装步骤
+### 2. 安装系统
 
-1. 克隆项目
-```bash
-git clone https://github.com/chenbool/wms.git
+访问安装向导：`http://your-domain/install.php`
+
+填写数据库连接信息后完成安装。
+
+详细安装说明请参阅 [安装指南](install.md)
+
+## 默认账号
+
+| 类型 | 用户名 | 密码 |
+|------|--------|------|
+| 管理员 | admin | admin123 |
+
+## 在线演示
+
+访问地址：http://148.70.120.105:8002/login/index
+
+| 类型 | 账号 | 密码 |
+|------|------|------|
+| 普通用户 | admin | admin |
+| 管理员 | bool | admin |
+
+## 系统演示
+
+<table>
+    <tr>
+        <td><img src="./demo/1.gif" width="300"/></td>
+        <td><img src="./demo/20171229163116.png" width="300"/></td>
+    </tr>
+    <tr>
+        <td><img src="./demo/20171229163127.png" width="300"/></td>
+        <td><img src="./demo/20171229163140.png" width="300"/></td>
+    </tr>
+    <tr>
+        <td><img src="./demo/20171229185301.png" width="300"/></td>
+        <td><img src="./demo/20171230124816.png" width="300"/></td>
+    </tr>
+    <tr>
+        <td><img src="./demo/20171230124819.png" width="300"/></td>
+        <td></td>
+    </tr>
+</table>
+
+## 技术栈
+
+- 框架：ThinkPHP 5.1
+- PHP：>= 8.0
+- 数据库：MySQL 5.7+
+- 前端：Bootstrap + Xenon Theme
+- 条码：PhpCode128
+
+## 目录结构
+
+```
+wms/
+├── app/                    # 应用目录
+│   ├── controller/         # 控制器
+│   ├── model/              # 模型
+│   ├── service/            # 业务逻辑
+│   ├── view/               # 视图模板
+│   └── database.php        # 数据库配置
+├── public/                 # 公开入口
+│   ├── static/             # 静态资源
+│   ├── index.php           # 入口文件
+│   └── install.php         # 安装程序
+├── extend/                 # 扩展类库
+├── runtime/                # 运行时目录
+├── thinkphp/               # 框架核心
+├── demo/                   # 演示图片
+├── wms.sql                 # 数据库文件
+├── composer.json           # 依赖配置
+├── README.md               # 项目说明
+├── install.md              # 安装指南
+└── 开发说明.md             # 二次开发指南
 ```
 
-2. 安装依赖
-```bash
-composer install
-```
+## 二次开发
 
-3. 配置数据库
-修改 `app/database.php` 中的数据库连接信息
+详细二次开发文档请参阅 [开发说明.md](开发说明.md)，内容包括：
 
-4. 导入数据库
-创建数据库并导入 SQL 文件
+- 项目架构说明（MVC + Service 模式）
+- 开发规范与命名规则
+- 模块开发教程（以客户管理为例）
+- 数据库操作指南
+- 视图模板语法
+- 权限系统详解
+- API开发示例
+- 常用功能代码片段
 
-5. 访问系统
-```
-http://localhost/
-```
+## QQ 交流群
 
-## 目录权限
+QQ 群：785794314
 
-| 目录 | 权限要求 |
-|------|----------|
-| runtime/ | 可写 |
-| public/uploads/ | 可写 |
+![QQ群](./demo/qq.png)
 
-## 相关链接
+## 桌面版下载
 
-- [ThinkPHP 官网](https://www.thinkphp.cn/)
-- [ThinkPHP 5.0 文档](https://www.kancloud.cn/manual/thinkphp5/)
+> 注：暂时只提供 Windows 版下载
 
-## 联系方式
+| 网盘 | 地址 | 密码 |
+|------|------|------|
+| 90网盘 | https://www.90pan.com/b1586379 | e717 |
+| 城通网盘 | https://t00y.com/file/23130714-415442373 | 396180 |
 
-- QQ群：785794314
-- 支付宝：81001985@qq.com
+## 更新日志
 
-## 许可证
+### 2024-xx-xx
+- 升级到 ThinkPHP 5.1 最新版
+- 兼容 PHP 8.2+
+- UI 美化优化
 
-Apache-2.0 License
+### 早期版本
+- 初始版本发布
+- 基础功能开发完成

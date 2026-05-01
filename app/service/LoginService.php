@@ -1,7 +1,6 @@
 <?php
 namespace app\service;
-use think\Request,
-	think\Session,
+use think\Session,
 	app\model\User;
 
 class LoginService
@@ -9,10 +8,10 @@ class LoginService
 
     // 登录验证
     public function login(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
     	//获取参数
-		$param = Request::instance()->param();
+		$param = request()->param();
     	$user  = User::get(['username' => $param['username'] ]);
 
     	//检测用户是否存在

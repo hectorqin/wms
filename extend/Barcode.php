@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * Barcode Encoder tool
  * (C) 2008, Eric Stern

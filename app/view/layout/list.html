@@ -1,0 +1,70 @@
+{extend name="base" /}
+
+{block name="content"}
+<!-- 页面标题和面包屑 -->
+<div class="page-title">
+    <div class="breadcrumb-env pull-left">
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="{:url('Index/index')}"><i class="fa-home"></i>首页</a>
+            </li>
+            {block name="breadcrumb_items"}
+            <li>
+                <a href="">{block name="breadcrumb_parent"}基本设置{/block}</a>
+            </li>
+            <li class="active">
+                <strong>{block name="page_title"}列表{/block}</strong>
+            </li>
+            {/block}
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <!-- 面板头部：操作按钮 -->
+            <div class="panel-heading btn-toolbar">
+                <div class="btn-group focus-btn-group">
+                    {block name="toolbar_buttons"}
+                    <button class="btn btn-default btn-primary" onclick="showAjaxModal();">
+                        <span class="fa-plus"></span> 添 加
+                    </button>
+                    {/block}
+                </div>
+
+                <div class="btn-group dropdown-btn-group pull-right">
+                    {block name="extra_buttons"}
+                    <button class="btn btn-default" onClick="$('.table').tableExport({formats:['xlsx','xls','csv','txt']})">导出</button>
+                    {/block}
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <!-- 搜索区域 -->
+                {block name="search_area"}
+                <div class="btn-toolbar">
+                    <form class="form-inline search-tool" style="margin-bottom:15px;" method="get" action="">
+                        {block name="search_fields"}{/block}
+                        <span style="margin-left: 15px;">
+                            <button class="btn btn-default btn-primary" type="submit" style="margin-top:10px;">
+                                <span class="fa-search"></span> 搜 索
+                            </button>
+                        </span>
+                    </form>
+                </div>
+                {/block}
+
+                <!-- 表格内容 -->
+                {block name="table_content"}{/block}
+
+                <!-- 分页 -->
+                {block name="pagination"}{/block}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框区域 -->
+{block name="modal_area"}{/block}
+{/block}

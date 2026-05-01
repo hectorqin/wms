@@ -1,7 +1,6 @@
 <?php
 namespace app\service;
-use think\Request,
-	app\model\Shelve,
+use app\model\Shelve,
 	app\validate\ShelveValidate;
 
 class ShelveService
@@ -9,7 +8,7 @@ class ShelveService
 
     public function page(){
 
-    	$data 	= Request::instance()->get();
+    	$data 	= request()->get();
     	$where 	= [];
 
     	//封装where查询条件
@@ -23,9 +22,9 @@ class ShelveService
 
     // 保存数据
     public function save(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
@@ -39,7 +38,7 @@ class ShelveService
 			$shelve->desc 		= $param['desc'];
 			$shelve->add_time 	= time();
 
-			// 检测错误
+			// 检测错�?
 			if( $shelve->save() ){
 				return ['error'	=>	0,'msg'	=>	'保存成功'];
 			}else{
@@ -59,9 +58,9 @@ class ShelveService
 
 
     public function update(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
@@ -74,7 +73,7 @@ class ShelveService
 			$shelve->status 	= $param['status'];
 			$shelve->desc 		= $param['desc'];
 
-			// 检测错误
+			// 检测错�?
 			if( $shelve->save() ){
 				return ['error'	=>	0,'msg'	=>	'修改成功'];
 			}else{
@@ -96,12 +95,12 @@ class ShelveService
 
 		// 支持批量删除多个数据
 		// User::destroy('1,2,3');
-		// // 或者
+		// // 或�?
 		// User::destroy([1,2,3]);
     }
 
 
-    // 验证器
+    // 验证�?
     private function _validate($data){
 		// 验证
 		$validate = validate('ShelveValidate');

@@ -1,0 +1,41 @@
+{extend name="base" /}
+
+{block name="content"}
+<!-- 页面标题和面包屑 -->
+<div class="page-title">
+    <div class="breadcrumb-env pull-left">
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="{:url('Index/index')}"><i class="fa-home"></i>首页</a>
+            </li>
+            {block name="breadcrumb_items"}
+            <li>
+                <a href="{block name="list_url"}{/block}">{block name="breadcrumb_parent"}基本设置{/block}</a>
+            </li>
+            <li class="active">
+                <strong>{block name="page_title"}表单{/block}</strong>
+            </li>
+            {/block}
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{block name="panel_title"}编辑{/block}</h3>
+            </div>
+            <div class="panel-body">
+                {block name="form_content"}{/block}
+            </div>
+            {block name="form_footer"}
+            <div class="panel-footer">
+                <button type="button" class="btn btn-success" onclick="submitForm()">保存</button>
+                <button type="button" class="btn btn-white" onclick="history.back()">返回</button>
+            </div>
+            {/block}
+        </div>
+    </div>
+</div>
+{/block}

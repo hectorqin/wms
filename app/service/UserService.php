@@ -1,7 +1,6 @@
 <?php
 namespace app\service;
-use think\Request,
-	app\model\User,
+use app\model\User,
 	app\model\Role,
 	app\model\Company,
 	app\validate\UserValidate;
@@ -22,7 +21,7 @@ class UserService
 
     public function page(){
 
-    	$data 	= Request::instance()->get();
+    	$data 	= request()->get();
     	$where 	= [];
 
     	//封装where查询条件
@@ -37,9 +36,9 @@ class UserService
 
     // 保存数据
     public function save(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
@@ -82,9 +81,9 @@ class UserService
 
 
     public function update(){
-    	Request::instance()->isPost() || die('request not  post!');
+    	request()->isPost() || die('request not  post!');
     	
-		$param = Request::instance()->param();	//获取参数
+		$param = request()->param();	//获取参数
 		$error = $this->_validate($param); 		// 是否通过验证
 
 		if( is_null( $error ) ){
