@@ -4,6 +4,28 @@
 
 简单的仓储管理系统，能对商品种类、商品库存、采购、货位、入库、出库、盘点等仓储动作和数据进行监控，提升WMS的管理效益。
 
+
+## 系统演示
+
+<table>
+    <tr>
+        <td><img src="./demo/1.gif" width="300"/></td>
+        <td><img src="./demo/20171229163116.png" width="300"/></td>
+    </tr>
+    <tr>
+        <td><img src="./demo/20171229163127.png" width="300"/></td>
+        <td><img src="./demo/20171229163140.png" width="300"/></td>
+    </tr>
+    <tr>
+        <td><img src="./demo/20171229185301.png" width="300"/></td>
+        <td><img src="./demo/20171230124816.png" width="300"/></td>
+    </tr>
+    <tr>
+        <td><img src="./demo/20171230124819.png" width="300"/></td>
+        <td></td>
+    </tr>
+</table>
+
 ## 主要功能模块
 
 | 模块 | 说明 |
@@ -57,26 +79,6 @@
 | 普通用户 | admin | admin |
 | 管理员 | bool | admin |
 
-## 系统演示
-
-<table>
-    <tr>
-        <td><img src="./demo/1.gif" width="300"/></td>
-        <td><img src="./demo/20171229163116.png" width="300"/></td>
-    </tr>
-    <tr>
-        <td><img src="./demo/20171229163127.png" width="300"/></td>
-        <td><img src="./demo/20171229163140.png" width="300"/></td>
-    </tr>
-    <tr>
-        <td><img src="./demo/20171229185301.png" width="300"/></td>
-        <td><img src="./demo/20171230124816.png" width="300"/></td>
-    </tr>
-    <tr>
-        <td><img src="./demo/20171230124819.png" width="300"/></td>
-        <td></td>
-    </tr>
-</table>
 
 ## 技术栈
 
